@@ -1,7 +1,7 @@
 //src/components/Calendar/calendar.js
 import React, { Component } from 'react';
 
-import './calendar.css';
+//import './calendar.css';
 import ReactCalendar from 'react-calendar';
 export default class Calendar extends Component {
   constructor(props) {

@@ -1,7 +1,13 @@
 // src/components/Login/login.js
 import React, { Component } from 'react';
-
 import './login.css';
+import Register from './register';
+import ForgotPassword from './forgotpassword';
+
+
+
+
+
 
 export default class Login extends Component { 
   constructor(props) {
@@ -92,41 +98,59 @@ var loginData={ email: this.state.email,
 }
 
   render() {    
-    return (
-      <div className="BOS_Login">
-            <div className="container">
-                <div className="login-form">
-                    <div className="main-div">
-                        <div className="panel">
-                            <h1>Login</h1>
-                            <p>Please enter your email and password</p>                           
-                        </div>
-                        <form id="Login" className={(this.state.formValid)?"was-validated":""}>
-                            <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-                                <input type="email" name="email" className="form-control" id="inputEmail" placeholder="Email Address" 
-                                value={this.state.email} onChange={(event) => this.handleUserInput(event)} />
-                            </div>
-                            <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-                                <input type="password" name="password" className="form-control" id="inputPassword" placeholder="Password" 
-                                value={this.state.password} onChange={(event) => this.handleUserInput(event)} />
-                            </div>
-                            <div className="forgot">
-                                <a href="/Register">Forgot password?</a>
-                            </div>
-                            <div className="register">
-                                <a href="/Register">Register</a>
-                            </div>
-                            <button type="button" className="btn btn-primary" disabled={!this.state.formValid} >Login</button>
-                        </form>
-                    </div>
-
-                </div> 
-                
-            </div>
-     </div> 
+      return (          
+          <div className="BOS_Login">
+              <div className="container">
+                  <Header />
+                  <div className="login-form" id="login_section">
+                      <div className="main-div">
+                          <div className="panel">
+                              <h1>Login</h1>
+                              <p>Please enter your email and password</p>
+                          </div>
+                          <form id="Login" className={(this.state.formValid) ? "was-validated" : ""}>
+                              <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+                                  <input type="email" name="email" className="form-control" id="inputEmail" placeholder="Email Address"
+                                      value={this.state.email} onChange={(event) => this.handleUserInput(event)} />
+                              </div>
+                              <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                                  <input type="password" name="password" className="form-control" id="inputPassword" placeholder="Password"
+                                      value={this.state.password} onChange={(event) => this.handleUserInput(event)} />
+                              </div>
+                              <div className="forgot">
+                                  <a href="ForgotPassword">Forgot password?</a>
+                              </div>
+                              <div className="register">
+                                  <a href="Register">Register</a>
+                              </div>
+                              <button type="button" className="btn btn-primary" disabled={!this.state.formValid} >Login</button>
+                          </form>
+                      </div>
+                  </div>  
+              </div>
+          </div>                              
     );
   }
 }
+
+
+ const Header = () => {      
+    return (
+        <div className="header">
+            <div className="row">
+                <div className="col-xs-4">
+                    <h2>
+                        <img src="../src/components/images/musician.png" />
+                    </h2>
+                </div>
+                <div className="col-xs-3 text-right paddingtop20 pull-right">
+                    <span><a href="/users">Search Artist</a></span> <span className="marginleft10"><a href="/login">Login</a></span>
+                </div>
+            </div>
+       </div>  
+    );
+ }
+export default Header;
 
 // export const FormErrors = ({formErrors}) =>{
 //     debugger;   
